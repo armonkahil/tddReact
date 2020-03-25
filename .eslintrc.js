@@ -13,7 +13,7 @@ module.exports = {
     },
     settings: {
     react: {
-        version: ​'16.13.0'​,    },
+        version: ​'16.4.2'​,    },
     rules: {
         quotes: [
             'error',
