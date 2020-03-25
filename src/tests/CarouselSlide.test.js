@@ -4,6 +4,7 @@ import CarouselSlide from '../CarouselSlide'
 
 describe('CarouselSlide', () => {
   let wrapper
+  
   beforeEach(() => {
     wrapper = shallow(
       <CarouselSlide imgUrl='https://example.com/default.jpg' description='Default test image' />
