@@ -1,43 +1,46 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import CarouselButton from './CarouselButton'
-import CarouselSlide from './CarouselSlide'
+import React from 'react';
+import PropTypes from 'prop-types';
+import CarouselButton from './CarouselButton';
+import CarouselSlide from './CarouselSlide';
 
 class Carousel extends React.PureComponent {
   static propTypes = {
+    defaultImg: CarouselSlide.propTypes.Img,
     defaultImgHeight: CarouselSlide.propTypes.imgHeight,
     slides: PropTypes.arrayOf(PropTypes.shape(CarouselSlide.propTypes))
-      .isRequired
-  }
+      .isRequired,
+  };
 
   static defaultProps = {
-    defaultImgHeight: CarouselSlide.defaultProps.imgHeight
-  }
+    defaultImg: CarouselSlide.defaultProps.Img,
+    defaultImgHeight: CarouselSlide.defaultProps.imgHeight,
+  };
 
   state = {
-    slideIndex: 0
-  }
+    slideIndex: 0,
+  };
 
   handlePrevClick = () => {
-    const { slides } = this.props
+    const { slides } = this.props;
     this.setState(({ slideIndex }) => ({
-      slideIndex: (slideIndex + slides.length - 1) % slides.length
-    }))
-  }
+      slideIndex: (slideIndex + slides.length - 1) % slides.length,
+    }));
+  };
 
   handleNextClick = () => {
-    const { slides } = this.props
+    const { slides } = this.props;
     this.setState(({ slideIndex }) => ({
-      slideIndex: (slideIndex + 1) % slides.length
-    }))
-  }
+      slideIndex: (slideIndex + 1) % slides.length,
+    }));
+  };
 
   render() {
-    const { defaultImgHeight, slides, ...rest } = this.props
+    const { defaultImg, defaultImgHeight, slides, ...rest } = this.props;
 
     return (
       <div {...rest}>
         <CarouselSlide
+          Img={defaultImg}
           imgHeight={defaultImgHeight}
           {...slides[this.state.slideIndex]}
         />
@@ -48,8 +51,8 @@ class Carousel extends React.PureComponent {
           Next
         </CarouselButton>
       </div>
-    )
+    );
   }
 }
 
-export default Carousel
+export default Carousel;

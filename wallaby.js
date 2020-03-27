@@ -3,14 +3,14 @@ module.exports = function(wallaby) {
     testFramework: 'jest',
 
     env: {
-      type: 'node'
+      type: 'node',
     },
 
     tests: ['src/tests/**/*.test.js'],
     files: ['src/**/*.js', '!**/*.test.js', '!**/.*'],
 
     compilers: {
-      '**/*.js': wallaby.compilers.babel() //(1)
-    }
-  }
-}
+      '**/*.js': wallaby.compilers.babel(), //(1)
+    },
+  };
+};
