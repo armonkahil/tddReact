@@ -26,29 +26,37 @@ export class Carousel extends React.PureComponent {
 
   handlePrevClick = () => {
     const { slideIndexDecrement, slides } = this.props;
-    slideIndexDecrement(slides.length)
+    slideIndexDecrement(slides.length);
     this.setState(({ slideIndex }) => ({
       slideIndex: (slideIndex + slides.length - 1) % slides.length,
     }));
   };
 
   handleNextClick = () => {
-    const { slideIndexIncrement ,slides } = this.props;
-    slideIndexIncrement(slides.length)
+    const { slideIndexIncrement, slides } = this.props;
+    slideIndexIncrement(slides.length);
     this.setState(({ slideIndex }) => ({
       slideIndex: (slideIndex + 1) % slides.length,
     }));
   };
 
   render() {
-    const { defaultImg, defaultImgHeight, slideIndex, slideIndexDecrement: _slideIndexDecrement, slideIndexIncrement: _slideIndexIncrement, slides, ...rest } = this.props;
+    const {
+      defaultImg,
+      defaultImgHeight,
+      slideIndex,
+      slideIndexDecrement: _slideIndexDecrement,
+      slideIndexIncrement: _slideIndexIncrement,
+      slides,
+      ...rest
+    } = this.props;
 
     return (
       <div {...rest}>
         <CarouselSlide
           Img={defaultImg}
           imgHeight={defaultImgHeight}
-          {...slides[this.state.slideIndex]}
+          {...slides[slideIndex]}
         />
         <CarouselButton data-action="prev" onClick={this.handlePrevClick}>
           Prev

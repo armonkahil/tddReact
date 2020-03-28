@@ -5,8 +5,6 @@ import CarouselButton from '../CarouselButton';
 import CarouselSlide from '../CarouselSlide';
 
 describe('Carousel', () => {
-  let wrapper;
-
   const slides = [
     {
       imgUrl: 'https://example.com/slide1.png',
@@ -73,7 +71,6 @@ describe('Carousel', () => {
           .prop('children')
       ).toBe('Next');
     });
-
     it('renders the current slide as a CarouselSlide', () => {
       let slideProps;
       slideProps = wrapper.find(CarouselSlide).props();
@@ -81,7 +78,7 @@ describe('Carousel', () => {
         ...CarouselSlide.defaultProps,
         ...slides[0],
       });
-      wrapper.setState({ slideIndex: 1 });
+      wrapper.setProps({ slideIndex: 1 });
       slideProps = wrapper.find(CarouselSlide).props();
       expect(slideProps).toEqual({
         ...CarouselSlide.defaultProps,
