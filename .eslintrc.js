@@ -7,7 +7,8 @@ module.exports = {
   },
   rules: {
     quotes: ['error', 'single', { avoidEscape: true }],
-    'comma-dangle': ['error', 'always-multiline']
+    'comma-dangle': ['error', 'always-multiline'],
+    'no-unused-vars': ['error', {varsIgnorePattern: '^_'}]
   },
   settings: {
     react: {
